@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내 버킷리스트 카드</title>
+    <style>
+        /* 기본 카드 디자인 (자유롭게 수정 가능) */
+        .card {
+            width: 300px;
+            margin: 50px auto;
+            background: linear-gradient(135deg, #fffcf0 0%, #fff3b0 100%);
+            padding: 15px 15px 35px 15px;
+            border-radius: 2px 2px 15px 5px;
+            box-shadow: 3px 5px 15px rgba(0,0,0,0.15);
+            /* 배지의 기준점이 되기 위한 필수 속성 */
+            position: relative; 
+        }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+        .card h2 { color: #2c3e50; font-size: 1.5rem; margin-bottom: 10px; }
+        .card p { color: #444; font-size:1.1rem; line-height: 1.5; }
+
+        /* 1. 배지 (absolute) 관련 CSS를 작성하세요 */
+        
+
+        /* 2. 비밀 메모 (visibility) 및 hover 효과 관련 CSS를 작성하세요 */
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            color: #000dff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #ff0707f7;
+            font-size:1.5rem;
+            line-height: 1.5;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #51ff00;
+            color: rgb(255, 0, 0);
+            padding: 5px 10px;
+            font-size:1.5rem;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .secret {
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            margin-top: 10px;
+            font-size: 2rem;
+            color: #555;
+        }
+
+        .card:hover .secret {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnYReKTTMP9oYQH_KgSNnTjd9-yLtBSAm14Q&s" alt="만수무강, 만사형통">
+        <div class="badge">Hot🔥</div>
+
+        
+        <h2>✨ 임희승의 꿈</h2>
+        <p>🧓 1. 로또1등당첨</p>
+        <p>💸 2. 로또2등당첨</p>
+        <p class="secret">👍건강이 최고👍</p>
+        </div>
+    </body>
+</html>
