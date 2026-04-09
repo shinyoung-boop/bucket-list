@@ -1,0 +1,88 @@
+       <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내 버킷리스트 카드</title>
+    <style>
+        /* 기본 카드 디자인 (자유롭게 수정 가능) */
+        .card {
+            width: 500px;
+            margin: 100px auto;
+            background: linear-gradient(135deg, #ffffff 0%, #b3edff 100%);
+            padding: 15px 15px 35px 15px;
+            border-radius: 2px 2px 15px 5px;
+            box-shadow: 3px 5px 15px rgba(0,0,0,0.15);
+            /* 배지의 기준점이 되기 위한 필수 속성 */
+            position: relative; 
+        }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+        .card h2 { color: #2c3e50; font-size: 1.5rem; margin-bottom: 10px; }
+        .card p { color: #444; font-size: 1.1rem; line-height: 1.5; }
+
+        .card h2 {
+            color: #158599 !important;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .card p {
+            color: #35a8eb;
+            font-size: 20px;
+            font-weight: 100;
+            text-align: center;
+
+        } 
+
+        /* 1. 배지 (absolute) 관련 CSS를 작성하세요 */
+          .card-list{
+            list-style-position: absolute;
+            list-style-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png');
+                
+          }
+        
+
+        /* 2. 비밀 메모 (visibility) 및 hover 효과 관련 CSS를 작성하세요 */
+        .secret-card p {
+            visibility: hidden; /* 기본적으로 비밀 메모는 숨김 */
+            transition: visibility 0.3s ease; /* 부드러운 전환 효과 */
+        }
+
+        .secret-card:hover .secret-card p {
+            visibility: visible;
+        }
+        .secret-card { text-decoration: underline; color: #4c91f8; cursor: pointer; margin-top: 20px; }
+
+            
+
+
+
+    </style>
+</head>
+<body>
+   
+
+    <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/adventure-1867271_1280.jpg"
+        
+        
+        
+        
+<h2>2026 신영이의 꿈</h2>
+        <div class="card">
+            <p>1. 가장 친한친구들과 2박3일 일본여행가기</p>
+            <p>2. 토익,컴활 자격증 따기</p>
+            <p>3. 시험 A이상 맞아보기</p>
+            <p>4.여름바다 보러가기 </p>
+
+        <div class="secret-card">
+            <p>TMI: 해외여행 한번도 안 가봄</p>
+        </div>
+
+        </div>
+        
+        
+    </body>
+</html>
+
+
