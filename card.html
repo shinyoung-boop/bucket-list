@@ -1,88 +1,201 @@
-       <!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <title>내 버킷리스트 카드</title>
+    <meta charset="UTF-8" />
+    <title>우리 조 버킷리스트 아트 월</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
     <style>
-        /* 기본 카드 디자인 (자유롭게 수정 가능) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Nanum Pen Script", cursive;
+            background-color: #d4b895;
+            background-image: url("https://www.transparenttextures.com/patterns/cork-board.png");
+            background-attachment: fixed;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        header {
+            margin: 60px auto 40px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .gallery-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .card {
-            width: 500px;
-            margin: 100px auto;
-            background: linear-gradient(135deg, #ffffff 0%, #b3edff 100%);
+            float: left;
+            width: 31.33%;
+            margin: 1%;
+            background: linear-gradient(135deg, #fffcf0 0%, #fff3b0 100%);
             padding: 15px 15px 35px 15px;
             border-radius: 2px 2px 15px 5px;
-            box-shadow: 3px 5px 15px rgba(0,0,0,0.15);
-            /* 배지의 기준점이 되기 위한 필수 속성 */
-            position: relative; 
+            box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+            transform: rotate(-3deg);
+            transition:
+                transform 0.3s ease,
+                z-index 0s;
         }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
-        .card h2 { color: #2c3e50; font-size: 1.5rem; margin-bottom: 10px; }
-        .card p { color: #444; font-size: 1.1rem; line-height: 1.5; }
+
+        .card:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
 
         .card h2 {
-            color: #158599 !important;
-            font-size: 40px;
-            font-weight: 700;
-            text-align: center;
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
 
         .card p {
-            color: #35a8eb;
-            font-size: 20px;
-            font-weight: 100;
+            color: #444;
+            font-size: 1.3rem;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* KJM 카드 */
+        .KJM-card {
+            background: linear-gradient(135deg, #eaf6ff 0%, #d6ecff 100%);
+            border-radius: 10px 10px 20px 10px;
+            box-shadow: 5px 8px 20px rgba(0, 0, 0, 0.15);
+            transform: rotate(-2deg);
+            padding-bottom: 60px;
+        }
+
+        .KJM-card h2 {
+            color: #1e3a5f;
+        }
+
+        .KJM-card p {
+            color: #2f4f6f;
+        }
+
+        .KJM-card:hover {
+            transform: scale(1.07) rotate(0deg);
+            box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .KJM-card .secret-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 0 0 20px 10px;
+            overflow: hidden;
+        }
+
+        .KJM-card .secret {
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 12px;
+            font-size: 1.2rem;
             text-align: center;
-
-        } 
-
-        /* 1. 배지 (absolute) 관련 CSS를 작성하세요 */
-          .card-list{
-            list-style-position: absolute;
-            list-style-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png');
-                
-          }
-        
-
-        /* 2. 비밀 메모 (visibility) 및 hover 효과 관련 CSS를 작성하세요 */
-        .secret-card p {
-            visibility: hidden; /* 기본적으로 비밀 메모는 숨김 */
-            transition: visibility 0.3s ease; /* 부드러운 전환 효과 */
+            transform: translateY(100%);
+            transition: 0.3s;
         }
 
-        .secret-card:hover .secret-card p {
-            visibility: visible;
+        .KJM-card:hover .secret {
+            transform: translateY(0);
         }
-        .secret-card { text-decoration: underline; color: #4c91f8; cursor: pointer; margin-top: 20px; }
 
-            
+        .KJM-card .tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            width: 90px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(2px);
+            z-index: 40;
+        }
 
-
-
+        .KJM-card .badge {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            background: linear-gradient(135deg, #ff6b6b, #ff3b3b);
+            color: white;
+            padding: 8px 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            transform: rotate(15deg);
+            z-index: 50;
+            border: 2px solid white;
+        }
     </style>
 </head>
-<body>
-   
 
-    <div class="card">
-        <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/adventure-1867271_1280.jpg"
-        
-        
-        
-        
-<h2>2026 신영이의 꿈</h2>
+<body>
+    <header>
+        <h1>🏖️ 2026 버킷리스트 아트 월 🏖️</h1>
+        <p style="font-size: 1.5rem; color: #555">
+            우리 조의 꿈들을 코르크 보드에 붙였습니다!
+        </p>
+    </header>
+    <main class="gallery-container clearfix">
+
         <div class="card">
+
+            
+            <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/adventure-1867271_1280.jpg">
+
+            <h2>2026 신영이의 꿈</h2>
             <p>1. 가장 친한친구들과 2박3일 일본여행가기</p>
             <p>2. 토익,컴활 자격증 따기</p>
             <p>3. 시험 A이상 맞아보기</p>
             <p>4.여름바다 보러가기 </p>
 
-        <div class="secret-card">
-            <p>TMI: 해외여행 한번도 안 가봄</p>
-        </div>
+            <div class="secret-card">
+                <p>TMI: 해외여행 한번도 안 가봄</p>
+            </div>
 
         </div>
-        
-        
-    </body>
+
+    </main>
+</body>
+
 </html>
-
-
